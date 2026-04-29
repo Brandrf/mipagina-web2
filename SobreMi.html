@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mi - Brandon Lee Morales Inocente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(23, 28, 73, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(224, 59, 94, 0.03) 0%, transparent 20%),
+                linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);
+            background-attachment: fixed;
+        }
+
+        .sobre-mi {
+            max-width: 120rem;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .perfil {
+            text-align: center;
+            margin-bottom: 6rem;
+            padding: 5rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .perfil::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10rem;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--secundario), transparent);
+            border-radius: 2px;
+        }
+
+        .foto-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+
+        .foto-perfil {
+            width: 22rem;
+            height: 22rem;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--blanco);
+            box-shadow: 0 0 0 4px var(--secundario), 0 10px 30px rgba(23, 28, 73, 0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .foto-container:hover .foto-perfil {
+            transform: scale(1.03);
+            box-shadow: 0 0 0 6px var(--secundario), 0 15px 40px rgba(23, 28, 73, 0.4);
+        }
+
+        .perfil h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.6rem;
+            font-weight: 700;
+            color: var(--oscuro);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .perfil .subtitulo {
+            display: inline-block;
+            background: var(--secundario);
+            color: var(--blanco);
+            padding: 0.8rem 2rem;
+            border-radius: 3rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+        }
+
+        .datos-personales {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .dato {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(224, 59, 94, 0.1);
+            padding: 1rem 2rem;
+            border-radius: 3rem;
+            font-size: 1.5rem;
+            color: var(--gris);
+        }
+
+        .dato span {
+            font-size: 2rem;
+        }
+
+        .perfil p {
+            max-width: 80rem;
+            margin: 0 auto;
+            line-height: 1.9;
+            color: var(--gris);
+            font-size: 1.7rem;
+            font-weight: 400;
+        }
+
+        .perfil p strong {
+            color: var(--secundario);
+            font-weight: 600;
+        }
+
+        .habilidades {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .habilidades h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.4rem;
+            color: var(--secundario);
+            margin-bottom: 2rem;
+        }
+
+        .grid-habilidades {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .grid-habilidades {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .habilidad {
+            background: var(--blanco);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .habilidad:hover {
+            transform: translateY(-5px);
+        }
+
+        .habilidad .icono {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .habilidad h4 {
+            color: var(--oscuro);
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .habilidad p {
+            color: var(--gris);
+            font-size: 1.3rem;
+        }
+
+        .portafolio {
+            margin-top: 2rem;
+        }
+
+        .portafolio-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .portafolio-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            color: var(--secundario);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .portafolio-header h2::after {
+            content: '';
+            display: block;
+            width: 6rem;
+            height: 3px;
+            background: var(--secundario);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        .portafolio-header p {
+            color: var(--gris);
+            font-size: 1.6rem;
+            max-width: 60rem;
+            margin: 1.5rem auto 0;
+        }
+
+        .grid-proyectos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        @media (max-width: 992px) {
+            .grid-proyectos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .grid-proyectos {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .proyecto {
+            background: linear-gradient(145deg, var(--blanco), #f0f4f8);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 
+                0 4px 6px rgba(0, 0, 0, 0.05),
+                0 10px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+        }
+
+        .proyecto::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secundario), var(--primario));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .proyecto:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 12px 24px rgba(0, 0, 0, 0.12),
+                0 4px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .proyecto:hover::before {
+            transform: scaleX(1);
+        }
+
+        .proyecto img {
+            width: 100%;
+            height: 22rem;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .proyecto:hover img {
+            transform: scale(1.05);
+        }
+
+        .proyecto-info {
+            padding: 2.5rem;
+        }
+
+        .proyecto-info .categoria {
+            display: inline-block;
+            font-size: 1.2rem;
+            color: var(--secundario);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .proyecto-info h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            color: var(--oscuro);
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .proyecto-info p {
+            color: var(--gris);
+            line-height: 1.7;
+            font-size: 1.5rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem;
+            margin-top: 4rem;
+            background: var(--oscuro);
+            color: var(--blanco);
+        }
+
+        .footer p {
+            font-size: 1.4rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="nav-bg">
+        <div class="navegacion-principal contenedor">
+            <a href="Inicio.html">Inicio</a>
+            <a href="SobreMi.html">Sobre Mi</a>
+            <a href="Clientes.html">Clientes</a>
+            <a href="Contacto.html">Contacto</a>
+        </div>
+    </nav>
+
+    <main class="sobre-mi">
+        
+        <section class="perfil sombra">
+            <div class="foto-container">
+                <img src="img/Mi-foto.jpg" alt="Brandon Lee Morales Inocente" class="foto-perfil">
+            </div>
+            
+            <h2>Brandon Lee Morales Inocente</h2>
+            <span class="subtitulo">Desarrollador Web Full Stack</span>
+            
+            <div class="datos-personales">
+                <div class="dato">
+                    <span>🎂</span> 22 años
+                </div>
+                <div class="dato">
+                    <span>🇵🇪</span> Perú
+                </div>
+                <div class="dato">
+                    <span>📍</span> Cerro de Pasco
+                </div>
+                <div class="dato">
+                    <span>💻</span> Desarrollador Web
+                </div>
+            </div>
+            
+            <p>
+                Soy desarrollador web apasionado por crear <strong>experiencias digitales únicas y funcionales</strong>. 
+                Especializado en diseño responsive, aplicaciones web modernas y tiendas online. 
+                Con sede en <strong>Cerro de Pasco, Perú</strong>, trabajo con clientes locales y remotos para llevar 
+                sus ideas al mundo digital. Me enfoco en la calidad, la usabilidad y el diseño 
+                atractivo en cada proyecto.
+            </p>
+        </section>
+
+        <section class="habilidades">
+            <h3>Mis Habilidades</h3>
+            <div class="grid-habilidades">
+                <div class="habilidad">
+                    <div class="icono">💻</div>
+                    <h4>HTML/CSS</h4>
+                    <p>Estructura y diseño web</p>
+                </div>
+                <div class="habilidad">
+                    <div class="icono">⚡</div>
+                    <h4>JavaScript</h4>
+                    <p>Interactividad y dinamismo</p>
+                </div>
+                <div class="habilidad">
+                    <div class="icono">📱</div>
+                    <h4>Responsive</h4>
+                    <p>Adaptable a todos los dispositivos</p>
+                </div>
+                <div class="habilidad">
+                    <div class="icono">🎨</div>
+                    <h4>Diseño UI/UX</h4>
+                    <p>Interfaces atractivas y funcionales</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="portafolio">
+            <div class="portafolio-header">
+                <h2>Mi Portafolio</h2>
+                <p>Estos son algunos de los proyectos que he desarrollado, cada uno con un enfoque único y soluciones a medida.</p>
+            </div>
+            
+            <div class="grid-proyectos">
+                
+                <div class="proyecto">
+                    <img src="img/proyecto1.jpg" alt="Tienda Online Moda">
+                    <div class="proyecto-info">
+                        <span class="categoria">E-Commerce</span>
+                        <h3>Tienda Online Moda</h3>
+                        <p>E-commerce completo con carrito de compras, pasarela de pagos y panel administrativo para gestión de inventario.</p>
+                    </div>
+                </div>
+
+                <div class="proyecto">
+                    <img src="img/proyecto2.jpg" alt="App de Gestión Escolar">
+                    <div class="proyecto-info">
+                        <span class="categoria">Sistema Web</span>
+                        <h3>App de Gestión Escolar</h3>
+                        <p>Sistema web para administración de notas, asistencia y comunicación entre profesores, alumnos y padres de familia.</p>
+                    </div>
+                </div>
+
+                <div class="proyecto">
+                    <img src="img/proyecto3.jpg" alt="Restaurante El Sabor">
+                    <div class="proyecto-info">
+                        <span class="categoria">Web Institucional</span>
+                        <h3>Restaurante El Sabor</h3>
+                        <p>Página web con menú digital, sistema de reservas online y galería de platillos para restaurante local.</p>
+                    </div>
+                </div>
+
+                <div class="proyecto">
+                    <img src="img/proyecto4.jpg" alt="Portafolio Fotográfico">
+                    <div class="proyecto-info">
+                        <span class="categoria">Galería Web</span>
+                        <h3>Portafolio Fotográfico</h3>
+                        <p>Galería interactiva para fotógrafo profesional con efectos de lightbox y categorización por eventos.</p>
+                    </div>
+                </div>
+
+                <div class="proyecto">
+                    <img src="img/proyecto5.png" alt="Clínica Dental Salud">
+                    <div class="proyecto-info">
+                        <span class="categoria">Web + App</span>
+                        <h3>Clínica Dental Salud</h3>
+                        <p>Sitio web institucional con sistema de citas online, historial de pacientes y blog de consejos de salud dental.</p>
+                    </div>
+                </div>
+
+                <div class="proyecto">
+                    <img src="img/proyecto6.jpg" alt="App de Delivery Local">
+                    <div class="proyecto-info">
+                        <span class="categoria">Aplicación Móvil</span>
+                        <h3>App de Delivery Local</h3>
+                        <p>Plataforma de pedidos a domicilio con geolocalización, seguimiento en tiempo real y sistema de calificaciones.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>Todos los derechos reservados. Brandon Lee Morales Inocente</p>
+    </footer>
+
+    <!-- Botones y Scripts agregados -->
+    <button id="btnTema">🌙 Modo Oscuro</button>
+    <button id="btnTop">↑ Ir Arriba</button>
+    <script src="js/script.js"></script>
+</body>
+</html>

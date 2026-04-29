@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Brandon Morales Inocente</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .contacto {
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .contacto h2 {
+            color: var(--secundario);
+            margin-bottom: 3rem;
+        }
+        
+        /* Checkbox de WhatsApp */
+        .campo-whatsapp {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(37, 211, 102, 0.1);
+            border-radius: 0.5rem;
+            border: 1px solid rgba(37, 211, 102, 0.3);
+        }
+
+        .campo-whatsapp input[type="checkbox"] {
+            width: 2rem;
+            height: 2rem;
+            accent-color: #25D366;
+            cursor: pointer;
+        }
+
+        .campo-whatsapp label {
+            color: var(--blanco) !important;
+            font-size: 1.6rem;
+            margin: 0 !important;
+            cursor: pointer;
+        }
+
+        /* Botón que aparece al marcar */
+        .btn-ir-whatsapp {
+            display: none;
+            margin-top: 1.5rem;
+            background-color: #25D366;
+            color: white;
+            padding: 1.2rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-size: 1.6rem;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-ir-whatsapp:hover {
+            background-color: #128C7E;
+        }
+
+        .btn-ir-whatsapp.mostrar {
+            display: inline-block;
+        }
+
+        .icono-whatsapp {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navegación -->
+    <nav class="nav-bg">
+        <div class="navegacion-principal contenedor">
+            <a href="Inicio.html">Inicio</a>
+            <a href="SobreMi.html">Sobre Mi</a>
+            <a href="Clientes.html">Clientes</a>
+            <a href="Contacto.html">Contacto</a>
+        </div>
+    </nav>
+
+    <main class="contacto">
+        
+        <h2>Contacto</h2>
+        
+        <form class="formulario">
+            <fieldset>
+                <legend>Contáctanos llenando todos los campos</legend>
+                
+                <div class="contenedor-campos">
+                    <div class="campo">
+                        <label>Nombre</label>
+                        <input class="input-text" type="text" placeholder="Tu Nombre" required>
+                    </div>
+                    
+                    <div class="campo">
+                        <label>Teléfono</label>
+                        <input class="input-text" type="tel" placeholder="Tu Teléfono" required>
+                    </div>
+                    
+                    <div class="campo">
+                        <label>Correo</label>
+                        <input class="input-text" type="email" placeholder="Tu Correo" required>
+                    </div>
+                    
+                    <div class="campo">
+                        <label>Mensaje</label>
+                        <textarea class="input-text" placeholder="Tu Mensaje" required></textarea>
+                    </div>
+                </div>
+
+                <!-- Checkbox de WhatsApp -->
+                <div class="campo-whatsapp">
+                    <input type="checkbox" id="quiero-whatsapp">
+                    <label for="quiero-whatsapp">Quiero contactar por WhatsApp</label>
+                </div>
+
+                <!-- Botón que aparece al marcar -->
+                <a href="https://wa.me/51918749246?text=Hola%20Brandon,%20vi%20tu%20página%20web%20y%20quiero%20contactarte" 
+                   class="btn-ir-whatsapp" 
+                   id="btn-whatsapp"
+                   target="_blank">
+                    <span class="icono-whatsapp">📱</span> Ir a WhatsApp →
+                </a>
+                
+                <div class="alinear-derecha flex" style="margin-top: 2rem;">
+                    <input class="boton w-sm-100" type="submit" value="ENVIAR">
+                </div>
+            </fieldset>
+        </form>
+
+    </main>
+
+    <footer class="footer">
+        <p>Todos los derechos reservados. Brandon Morales Inocente</p>
+    </footer>
+
+    <!-- Botones y Scripts agregados -->
+    <button id="btnTema">🌙 Modo Oscuro</button>
+    <button id="btnTop">↑ Ir Arriba</button>
+    
+    <!-- Script combinado -->
+    <script src="js/script.js"></script>
+    <script>
+        function mostrarBoton() {
+            const checkbox = document.getElementById('quiero-whatsapp');
+            const boton = document.getElementById('btn-whatsapp');
+            
+            if (checkbox && boton) {
+                if (checkbox.checked) {
+                    boton.classList.add('mostrar');
+                } else {
+                    boton.classList.remove('mostrar');
+                }
+            }
+        }
+        
+        document.getElementById('quiero-whatsapp').addEventListener('change', mostrarBoton);
+    </script>
+</body>
+</html>
