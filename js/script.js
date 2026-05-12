@@ -1,5 +1,5 @@
 // ============================================
-// FUNCIONALIDAD 1: BOTÓN "IR ARRIBA"
+// BOTÓN "IR ARRIBA"
 // ============================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ============================================
-    // FUNCIONALIDAD 2: MODO OSCURO / CLARO
+    // MODO OSCURO / CLARO
     // ============================================
 
     const btnTema = document.getElementById("btnTema");
@@ -53,10 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ============================================
-    // FUNCIONALIDAD 3: RELOJ EN TIEMPO REAL
+    // RELOJ EN TIEMPO REAL
     // ============================================
-
-    // Crear el contenedor del reloj si no existe
     if (!document.getElementById("reloj-tiempo-real")) {
         const relojHTML = `
             <div id="reloj-tiempo-real" style="
@@ -71,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 font-weight: bold;
                 font-family: monospace;
                 z-index: 99;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                box-shadow: 0 4px 15px rgba(14, 73, 44, 0.3);
                 transition: all 0.3s ease;
             ">
                 <span id="fecha"></span><br>

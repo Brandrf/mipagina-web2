@@ -17,7 +17,6 @@
             min-height: 100vh;
         }
 
-        /* Navegación */
         .nav-bg {
             background-color: #8815d4;
             padding: 1rem 0;
@@ -54,7 +53,6 @@
             background-color: #171c49;
         }
 
-        /* Contenido principal */
         .contacto {
             max-width: 800px;
             margin: 2rem auto;
@@ -68,7 +66,6 @@
             margin-bottom: 2rem;
         }
 
-        /* Formulario */
         .formulario {
             background-color: #474858;
             padding: 2rem;
@@ -113,7 +110,6 @@
             resize: vertical;
         }
 
-        /* WhatsApp */
         .campo-whatsapp {
             display: flex;
             align-items: center;
@@ -170,7 +166,6 @@
             text-align: right;
         }
 
-        /* Footer */
         .footer {
             text-align: center;
             padding: 2rem;
@@ -179,7 +174,6 @@
             margin-top: 2rem;
         }
 
-        /* Botones flotantes */
         #btnTema {
             position: fixed;
             top: 1rem;
@@ -209,7 +203,6 @@
             z-index: 100;
         }
 
-        /* RELOJ - Esquina inferior izquierda */
         #reloj-tiempo-real {
             position: fixed;
             bottom: 1rem;
@@ -227,7 +220,6 @@
             line-height: 1.4;
         }
 
-        /* Modo oscuro */
         body.modo-oscuro {
             background: linear-gradient(to top, #0a0a0a, #1a1a2e);
         }
@@ -284,28 +276,29 @@
     <main class="contacto">
         <h2>📞 Contacto</h2>
 
-        <form class="formulario" id="formContacto">
+        <!-- ✅ EL ACTION ES TU ARCHIVO PHP -->
+       <form class="formulario" action="guardar.php" method="POST">
             <fieldset>
                 <legend>📝 Contáctanos llenando todos los campos</legend>
 
                 <div class="campo">
                     <label>👤 Nombre</label>
-                    <input type="text" class="input-text" id="nombre" placeholder="Tu Nombre" required>
+                    <input type="text" class="input-text" id="nombre" name="nombre" placeholder="Tu Nombre" required>
                 </div>
 
                 <div class="campo">
                     <label>📱 Teléfono</label>
-                    <input type="tel" class="input-text" id="telefono" placeholder="Tu Teléfono" required>
+                    <input type="tel" class="input-text" id="telefono" name="telefono" placeholder="Tu Teléfono">
                 </div>
 
                 <div class="campo">
                     <label>✉️ Correo</label>
-                    <input type="email" class="input-text" id="email" placeholder="Tu Correo" required>
+                    <input type="email" class="input-text" id="correo" name="correo" placeholder="Tu Correo" required>
                 </div>
 
                 <div class="campo">
                     <label>💬 Mensaje</label>
-                    <textarea class="input-text" id="mensaje" placeholder="Tu Mensaje" required></textarea>
+                    <textarea class="input-text" id="mensaje" name="mensaje" placeholder="Tu Mensaje" required></textarea>
                 </div>
 
                 <div class="campo-whatsapp">
@@ -328,18 +321,15 @@
         <p>Todos los derechos reservados - Brandon Morales Inocente</p>
     </footer>
 
-    <!-- Botones flotantes -->
     <button id="btnTema">🌙 Modo Oscuro</button>
     <button id="btnTop">↑ Ir Arriba</button>
 
-    <!-- RELOJ -->
     <div id="reloj-tiempo-real">
         <span id="fecha"></span><br>
         <span id="hora"></span>
     </div>
 
     <script>
-        // ========== RELOJ EN TIEMPO REAL ==========
         function actualizarReloj() {
             const ahora = new Date();
             const opcionesFecha = { 
@@ -361,7 +351,6 @@
         actualizarReloj();
         setInterval(actualizarReloj, 1000);
 
-        // ========== MODO OSCURO ==========
         const btnTema = document.getElementById('btnTema');
         const body = document.body;
         const temaGuardado = localStorage.getItem('tema');
@@ -381,7 +370,6 @@
             }
         });
 
-        // ========== BOTÓN IR ARRIBA ==========
         const btnTop = document.getElementById('btnTop');
         window.addEventListener('scroll', () => {
             btnTop.style.display = window.scrollY > 300 ? 'block' : 'none';
@@ -390,7 +378,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // ========== WHATSAPP ==========
         const checkbox = document.getElementById('quiero-whatsapp');
         const btnWhatsapp = document.getElementById('btn-whatsapp');
         const telefono = '51918749246';
@@ -405,15 +392,6 @@
             } else {
                 btnWhatsapp.classList.remove('mostrar');
             }
-        });
-
-        // ========== ENVIAR FORMULARIO ==========
-        document.getElementById('formContacto').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('✅ Mensaje enviado. ¡Gracias por contactarme!');
-            this.reset();
-            btnWhatsapp.classList.remove('mostrar');
-            checkbox.checked = false;
         });
     </script>
 </body>
