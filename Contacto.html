@@ -3,81 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Brandon Morales Inocente</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <title>Contacto - Brandon Morales</title>
     <style>
-        .contacto {
-            max-width: 80rem;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(to top, #000000, #c7d7e8);
+            min-height: 100vh;
+        }
+
+        /* Navegación */
+        .nav-bg {
+            background-color: #8815d4;
+            padding: 1rem 0;
+        }
+
+        .navegacion-principal {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .contacto h2 {
-            color: var(--secundario);
-            margin-bottom: 3rem;
-        }
-        
-        /* Checkbox de WhatsApp */
-        .campo-whatsapp {
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            padding: 1.5rem;
-            background: rgba(37, 211, 102, 0.1);
-            border-radius: 0.5rem;
-            border: 1px solid rgba(37, 211, 102, 0.3);
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0 1rem;
         }
 
-        .campo-whatsapp input[type="checkbox"] {
-            width: 2rem;
-            height: 2rem;
-            accent-color: #25D366;
-            cursor: pointer;
+        @media (min-width: 768px) {
+            .navegacion-principal {
+                flex-direction: row;
+                justify-content: space-between;
+            }
         }
 
-        .campo-whatsapp label {
-            color: var(--blanco) !important;
-            font-size: 1.6rem;
-            margin: 0 !important;
-            cursor: pointer;
-        }
-
-        /* Botón que aparece al marcar */
-        .btn-ir-whatsapp {
-            display: none;
-            margin-top: 1.5rem;
-            background-color: #25D366;
-            color: white;
-            padding: 1.2rem 2rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-size: 1.6rem;
-            font-weight: bold;
+        .navegacion-principal a {
+            display: block;
             text-align: center;
-            border: 2px solid white;
-            transition: all 0.3s ease;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 0.8rem;
+            border-radius: 0.5rem;
+        }
+
+        .navegacion-principal a:hover {
+            background-color: #171c49;
+        }
+
+        /* Contenido principal */
+        .contacto {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .contacto h2 {
+            color: #8815d4;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Formulario */
+        .formulario {
+            background-color: #474858;
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+
+        .formulario legend {
+            text-align: center;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #171c49;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            display: inline-block;
             width: 100%;
         }
 
-        .btn-ir-whatsapp:hover {
-            background-color: #128C7E;
+        .campo {
+            margin-bottom: 1rem;
+        }
+
+        .campo label {
+            color: white;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-text {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+
+        textarea.input-text {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* WhatsApp */
+        .campo-whatsapp {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(37, 211, 102, 0.2);
+            border-radius: 0.5rem;
+        }
+
+        .campo-whatsapp input {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .campo-whatsapp label {
+            color: white;
+            font-size: 1rem;
+        }
+
+        .btn-ir-whatsapp {
+            display: none;
+            background-color: #25D366;
+            color: white;
+            padding: 0.8rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
         }
 
         .btn-ir-whatsapp.mostrar {
-            display: inline-block;
+            display: block;
         }
 
-        .icono-whatsapp {
-            margin-right: 0.5rem;
+        .boton {
+            background-color: #8815d4;
+            color: white;
+            padding: 0.8rem 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .boton:hover {
+            background-color: #6a0dad;
+        }
+
+        .alinear-derecha {
+            text-align: right;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #171c49;
+            color: white;
+            margin-top: 2rem;
+        }
+
+        /* Botones flotantes */
+        #btnTema {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background-color: #171c49;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 100;
+        }
+
+        #btnTop {
+            position: fixed;
+            bottom: 3rem;
+            right: 1rem;
+            background-color: #8815d4;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-weight: bold;
+            display: none;
+            z-index: 100;
+        }
+
+        /* RELOJ - Esquina inferior izquierda */
+        #reloj-tiempo-real {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+            background-color: #8815d4;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.8rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+            font-family: monospace;
+            z-index: 99;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* Modo oscuro */
+        body.modo-oscuro {
+            background: linear-gradient(to top, #0a0a0a, #1a1a2e);
+        }
+
+        body.modo-oscuro .formulario {
+            background-color: #1e1e2e;
+        }
+
+        body.modo-oscuro .formulario legend {
+            background-color: #4ecdc4;
+            color: #0f0f1a;
+        }
+
+        body.modo-oscuro .campo label {
+            color: #e0e0ff;
+        }
+
+        body.modo-oscuro .input-text {
+            background-color: #0f0f1a;
+            color: white;
+            border: 1px solid #4ecdc4;
+        }
+
+        body.modo-oscuro .nav-bg {
+            background-color: #1a1a2e;
+        }
+
+        body.modo-oscuro .footer {
+            background-color: #0a0a0a;
+        }
+
+        body.modo-oscuro #btnTema {
+            background-color: #4ecdc4;
+            color: #0f0f1a;
+        }
+
+        body.modo-oscuro #reloj-tiempo-real {
+            background-color: #4ecdc4;
+            color: #0f0f1a;
         }
     </style>
 </head>
 <body>
-    
-    <!-- Navegación -->
+
     <nav class="nav-bg">
-        <div class="navegacion-principal contenedor">
+        <div class="navegacion-principal">
             <a href="Inicio.html">Inicio</a>
             <a href="SobreMi.html">Sobre Mi</a>
             <a href="Clientes.html">Clientes</a>
@@ -86,82 +282,139 @@
     </nav>
 
     <main class="contacto">
-        
-        <h2>Contacto</h2>
-        
-        <form id="formulario" action="guardar.php" method="POST">
+        <h2>📞 Contacto</h2>
+
+        <form class="formulario" id="formContacto">
             <fieldset>
-                <legend>Contáctanos llenando todos los campos</legend>
-                
-                <div class="contenedor-campos">
-                    <div class="campo">
-                        <label>Nombre</label>
-                        <input type="text" name="nombre" placeholder="Tu Nombre" required>
-                    </div>
-                    
-                    <div class="campo">
-                        <label>Teléfono</label>
-                        <input type="tel" name="telefono" placeholder="Tu Teléfono" required>
-                    </div>
-                    
-                    <div class="campo">
-                        <label>Correo</label>
-                        <input type="email" name="correo" placeholder="Tu Correo" required>
-                    </div>
-                    
-                    <div class="campo">
-                        <label>Mensaje</label>
-                        <textarea name="mensaje" placeholder="Tu Mensaje" required></textarea>
-                    </div>
+                <legend>📝 Contáctanos llenando todos los campos</legend>
+
+                <div class="campo">
+                    <label>👤 Nombre</label>
+                    <input type="text" class="input-text" id="nombre" placeholder="Tu Nombre" required>
                 </div>
 
-                <!-- Checkbox de WhatsApp -->
+                <div class="campo">
+                    <label>📱 Teléfono</label>
+                    <input type="tel" class="input-text" id="telefono" placeholder="Tu Teléfono" required>
+                </div>
+
+                <div class="campo">
+                    <label>✉️ Correo</label>
+                    <input type="email" class="input-text" id="email" placeholder="Tu Correo" required>
+                </div>
+
+                <div class="campo">
+                    <label>💬 Mensaje</label>
+                    <textarea class="input-text" id="mensaje" placeholder="Tu Mensaje" required></textarea>
+                </div>
+
                 <div class="campo-whatsapp">
                     <input type="checkbox" id="quiero-whatsapp">
-                    <label for="quiero-whatsapp">Quiero contactar por WhatsApp</label>
+                    <label for="quiero-whatsapp">📱 Quiero contactar por WhatsApp</label>
                 </div>
 
-                <!-- Botón que aparece al marcar -->
-                <a href="https://wa.me/51918749246?text=Hola%20Brandon,%20vi%20tu%20página%20web%20y%20quiero%20contactarte" 
-                   class="btn-ir-whatsapp" 
-                   id="btn-whatsapp"
-                   target="_blank">
-                    <span class="icono-whatsapp">📱</span> Ir a WhatsApp →
+                <a href="#" class="btn-ir-whatsapp" id="btn-whatsapp" target="_blank">
+                    💬 Ir a WhatsApp →
                 </a>
-                
-                <div class="alinear-derecha flex" style="margin-top: 2rem;">
-                    <input class="boton w-sm-100" type="submit" value="ENVIAR">
+
+                <div class="alinear-derecha">
+                    <button type="submit" class="boton">📨 ENVIAR</button>
                 </div>
             </fieldset>
         </form>
-
     </main>
 
     <footer class="footer">
-        <p>Todos los derechos reservados. Brandon Morales Inocente</p>
+        <p>Todos los derechos reservados - Brandon Morales Inocente</p>
     </footer>
 
-    <!--  -->
-    <button id="btnTema"> Modo Oscuro</button>
+    <!-- Botones flotantes -->
+    <button id="btnTema">🌙 Modo Oscuro</button>
     <button id="btnTop">↑ Ir Arriba</button>
-    
-    <!-- Script combinado -->
-    <script src="js/script.js"></script>
+
+    <!-- RELOJ -->
+    <div id="reloj-tiempo-real">
+        <span id="fecha"></span><br>
+        <span id="hora"></span>
+    </div>
+
     <script>
-        function mostrarBoton() {
-            const checkbox = document.getElementById('quiero-whatsapp');
-            const boton = document.getElementById('btn-whatsapp');
-            
-            if (checkbox && boton) {
-                if (checkbox.checked) {
-                    boton.classList.add('mostrar');
-                } else {
-                    boton.classList.remove('mostrar');
-                }
-            }
+        // ========== RELOJ EN TIEMPO REAL ==========
+        function actualizarReloj() {
+            const ahora = new Date();
+            const opcionesFecha = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            const fecha = ahora.toLocaleDateString('es-ES', opcionesFecha);
+            const fechaFormateada = fecha.charAt(0).toUpperCase() + fecha.slice(1);
+            const hora = ahora.toLocaleTimeString('es-ES', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            document.getElementById('fecha').textContent = fechaFormateada;
+            document.getElementById('hora').textContent = hora;
         }
-        
-        document.getElementById('quiero-whatsapp').addEventListener('change', mostrarBoton);
+        actualizarReloj();
+        setInterval(actualizarReloj, 1000);
+
+        // ========== MODO OSCURO ==========
+        const btnTema = document.getElementById('btnTema');
+        const body = document.body;
+        const temaGuardado = localStorage.getItem('tema');
+        if (temaGuardado === 'oscuro') {
+            body.classList.add('modo-oscuro');
+            btnTema.textContent = '☀️ Modo Claro';
+        }
+
+        btnTema.addEventListener('click', () => {
+            body.classList.toggle('modo-oscuro');
+            if (body.classList.contains('modo-oscuro')) {
+                localStorage.setItem('tema', 'oscuro');
+                btnTema.textContent = '☀️ Modo Claro';
+            } else {
+                localStorage.setItem('tema', 'claro');
+                btnTema.textContent = '🌙 Modo Oscuro';
+            }
+        });
+
+        // ========== BOTÓN IR ARRIBA ==========
+        const btnTop = document.getElementById('btnTop');
+        window.addEventListener('scroll', () => {
+            btnTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        btnTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ========== WHATSAPP ==========
+        const checkbox = document.getElementById('quiero-whatsapp');
+        const btnWhatsapp = document.getElementById('btn-whatsapp');
+        const telefono = '51918749246';
+
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                const nombre = document.getElementById('nombre').value || 'cliente';
+                const mensaje = document.getElementById('mensaje').value || 'Hola, quiero más información';
+                const texto = `Hola, soy ${nombre}. ${mensaje}`;
+                btnWhatsapp.href = `https://wa.me/${telefono}?text=${encodeURIComponent(texto)}`;
+                btnWhatsapp.classList.add('mostrar');
+            } else {
+                btnWhatsapp.classList.remove('mostrar');
+            }
+        });
+
+        // ========== ENVIAR FORMULARIO ==========
+        document.getElementById('formContacto').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('✅ Mensaje enviado. ¡Gracias por contactarme!');
+            this.reset();
+            btnWhatsapp.classList.remove('mostrar');
+            checkbox.checked = false;
+        });
     </script>
 </body>
 </html>
