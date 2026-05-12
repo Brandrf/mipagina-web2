@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Brandon Morales Inocente</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <style>
         .contacto {
             max-width: 80rem;
@@ -89,29 +89,29 @@
         
         <h2>Contacto</h2>
         
-        <form class="formulario">
+        <form id="formulario" action="guardar.php" method="POST">
             <fieldset>
                 <legend>Contáctanos llenando todos los campos</legend>
                 
                 <div class="contenedor-campos">
                     <div class="campo">
                         <label>Nombre</label>
-                        <input class="input-text" type="text" placeholder="Tu Nombre" required>
+                        <input type="text" name="nombre" placeholder="Tu Nombre" required>
                     </div>
                     
                     <div class="campo">
                         <label>Teléfono</label>
-                        <input class="input-text" type="tel" placeholder="Tu Teléfono" required>
+                        <input type="tel" name="telefono" placeholder="Tu Teléfono" required>
                     </div>
                     
                     <div class="campo">
                         <label>Correo</label>
-                        <input class="input-text" type="email" placeholder="Tu Correo" required>
+                        <input type="email" name="correo" placeholder="Tu Correo" required>
                     </div>
                     
                     <div class="campo">
                         <label>Mensaje</label>
-                        <textarea class="input-text" placeholder="Tu Mensaje" required></textarea>
+                        <textarea name="mensaje" placeholder="Tu Mensaje" required></textarea>
                     </div>
                 </div>
 
@@ -141,8 +141,8 @@
         <p>Todos los derechos reservados. Brandon Morales Inocente</p>
     </footer>
 
-    <!-- Botones y Scripts agregados -->
-    <button id="btnTema">🌙 Modo Oscuro</button>
+    <!--  -->
+    <button id="btnTema"> Modo Oscuro</button>
     <button id="btnTop">↑ Ir Arriba</button>
     
     <!-- Script combinado -->
