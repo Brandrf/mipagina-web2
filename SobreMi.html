@@ -453,14 +453,52 @@
             </div>
         </section>
 
+        <!-- FORMULARIO PRESUPUESTO CORREGIDO (con el mismo estilo del contacto) -->
+        <div class="formulario" style="margin: 4rem auto; max-width: 70rem;">
+            <form action="guardar_presupuesto.php" method="POST">
+                <fieldset>
+                    <legend>💰 Solicita un presupuesto</legend>
+                    <div class="contenedor-campos">
+                        <div class="campo">
+                            <label>Nombre</label>
+                            <input type="text" class="input-text" name="nombre" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="campo">
+                            <label>Correo</label>
+                            <input type="email" class="input-text" name="email" placeholder="Tu correo" required>
+                        </div>
+                        <div class="campo">
+                            <label>Teléfono</label>
+                            <input type="tel" class="input-text" name="telefono" placeholder="Tu teléfono">
+                        </div>
+                        <div class="campo">
+                            <label>Servicio</label>
+                            <select name="servicio" class="input-text">
+                                <option value="">Selecciona un servicio</option>
+                                <option value="web">Diseño Web</option>
+                                <option value="ecommerce">Tienda Online</option>
+                                <option value="app">Aplicación Web</option>
+                            </select>
+                        </div>
+                        <div class="campo">
+                            <label>Mensaje</label>
+                            <textarea class="input-text" name="mensaje" placeholder="Cuéntame sobre tu proyecto..." rows="4" required></textarea>
+                        </div>
+                    </div>
+                    <div class="alinear-derecha">
+                        <button type="submit" class="boton">Enviar solicitud</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
     </main>
 
     <footer class="footer">
         <p>Todos los derechos reservados. Brandon Lee Morales Inocente</p>
     </footer>
 
-    <!-- B -->
-    <button id="btnTema"> Modo Oscuro</button>
+    <button id="btnTema">🌙 Modo Oscuro</button>
     <button id="btnTop">↑ Ir Arriba</button>
     <script src="js/script.js"></script>
 </body>

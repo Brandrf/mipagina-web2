@@ -6,55 +6,6 @@
     <title>Brandon Morales Inocente</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Estilos adicionales para el formulario de suscripción */
-        .newsletter {
-            background-color: var(--blanco);
-            padding: 3rem;
-            border-radius: 1rem;
-            text-align: center;
-            margin: 4rem auto;
-            max-width: 60rem;
-        }
-
-        .newsletter h3 {
-            color: var(--secundario);
-            font-size: 2.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .newsletter p {
-            color: var(--gris);
-            margin-bottom: 2rem;
-        }
-
-        .form-suscripcion {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .form-suscripcion input {
-            flex: 1;
-            min-width: 250px;
-            padding: 1rem;
-            border: 1px solid var(--gris);
-            border-radius: 0.5rem;
-            font-size: 1.6rem;
-        }
-
-        .form-suscripcion button {
-            background-color: var(--secundario);
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        .form-suscripcion button:hover {
-            background-color: var(--primario);
-        }
-    </style>
 </head>
 <body>
 
@@ -75,7 +26,7 @@
         <div class="contenido-hero">
             <h2>Mi primera página web</h2>
             <p class="ubicacion">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
                     <path d="M12 18.5l-3 -1.5l-6 3v-13l6 -3l6 3l6 -3v7.5" />
                     <path d="M9 4v13" />
                     <path d="M15 7v5.5" />
@@ -115,50 +66,48 @@
             </div>
         </div>
 
-        <!-- ✅ NUEVO FORMULARIO 1: NEWSLETTER / SUSCRIPCIÓN -->
-        <div class="newsletter sombra">
-            <h3>📧 Suscríbete a mi newsletter</h3>
-            <p>Recibe novedades sobre diseño web, proyectos nuevos y ofertas especiales.</p>
-            <form action="guardar_suscripcion.php" method="POST" class="form-suscripcion">
-                <input type="email" name="email" placeholder="Tu correo electrónico" required>
-                <button type="submit" class="boton">Suscribirme</button>
-            </form>
-        </div>
-
-    </main>
-
-    <section class="formulario contenedor">
-        <form action="guardar.php" method="POST">
+        <!-- FORMULARIO DE CONTACTO EXISTENTE -->
+        <form class="formulario" action="guardar.php" method="POST">
             <fieldset>
-                <legend>Contactanos llenando todos los campos</legend>
+                <legend>CONTÁCTANOS LLENANDO TODOS LOS CAMPOS</legend>
                 <div class="contenedor-campos">
                     <div class="campo">
                         <label>Nombre</label>
-                        <input type="text" name="nombre" class="input-text" placeholder="Tu Nombre">
+                        <input type="text" class="input-text" name="nombre" placeholder="Tu Nombre">
                     </div>
                     <div class="campo">
                         <label>Teléfono</label>
-                        <input type="tel" name="telefono" class="input-text" placeholder="Tu Teléfono">
+                        <input type="tel" class="input-text" name="telefono" placeholder="Tu Teléfono">
                     </div>
                     <div class="campo">
                         <label>Correo</label>
-                        <input type="email" name="correo" class="input-text" placeholder="Tu Correo">
+                        <input type="email" class="input-text" name="correo" placeholder="Tu Correo">
                     </div>
                     <div class="campo">
                         <label>Mensaje</label>
                         <textarea class="input-text" name="mensaje" placeholder="Tu Mensaje"></textarea>
                     </div>
                 </div>
-                <button type="submit" class="boton">Enviar</button>
+                <button type="submit" class="boton">ENVIAR</button>
             </fieldset>
         </form>
-    </section>
+
+        <!-- NUEVO FORMULARIO NEWSLETTER (agregado sin dañar nada) -->
+        <div class="sombra" style="padding: 3rem; margin: 4rem auto; text-align: center; max-width: 60rem;">
+            <h3 style="color: var(--secundario); font-size: 2.4rem; margin-bottom: 1rem;">📧 Suscríbete a mi newsletter</h3>
+            <p style="margin-bottom: 2rem; color: var(--gris);">Recibe novedades, promociones y contenido exclusivo.</p>
+            <form action="guardar_newsletter.php" method="POST" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                <input type="email" name="email" placeholder="Tu correo electrónico" required style="flex: 2; min-width: 250px; padding: 1rem; border: 1px solid var(--gris); border-radius: 0.5rem; font-size: 1.6rem;">
+                <button type="submit" class="boton" style="flex: 1; min-width: 150px;">Suscribirme</button>
+            </form>
+        </div>
+
+    </main>
 
     <footer class="footer">
-        <p>Todos los derechos reservados - Brandon CC</p>
+        <p>Todos los derechos reservados. Brandon Lee Morales Inocente</p>
     </footer>
 
-    <!-- Botones y Scripts -->
     <button id="btnTema">🌙 Modo Oscuro</button>
     <button id="btnTop">↑ Ir Arriba</button>
     <script src="js/script.js"></script>
